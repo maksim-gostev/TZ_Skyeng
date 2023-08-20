@@ -50,12 +50,12 @@
 <h3>Локальный запуск</h3>
 
 Файл .env для локального запуска:
-> DB_HOST=localhost <dr>
-CELERY_BROKER_URL=redis://redis:6379/0 <dr>
-POSTGRES_PASSWORD=postgres <dr>
-POSTGRES_USER=postgres <dr>
-POSTGRES_DB=postgres <dr>
-DB_PORT=5432 <dr>
+> * DB_HOST=localhost
+> * CELERY_BROKER_URL=redis://redis:6379/0 
+> * POSTGRES_PASSWORD=postgres 
+> * POSTGRES_USER=postgres 
+> * POSTGRES_DB=postgres 
+> * DB_PORT=5432
 
 Команда для локального запуска (из корня проекта):<br>
 <code>docker-compose up -d</code>
