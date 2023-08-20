@@ -1,0 +1,32 @@
+<!-- templates/registration/signup.html -->
+{% extends "base.html" %}
+
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+<h2 align="center">Отчеты</h2>
+
+{% if reports_list %}
+    <ul class="list-group list-group-flush">
+      {% for report in reports_list %}
+      <li class="list-group-item">
+        {{ report.created }}: <a href="{% url 'reports_front-detail' report.pk %}">{{ report.file.file }}</a> - {{ report.status }} <form method="post" action="{% url 'reports_front-review-report' report.pk %}">
+                                                                                                                                      {% csrf_token %}
+                                                                                                                                      <button type="submit" class="btn btn-primary">Review</button>
+                                                                                                                                    </form>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h5 align="center">Нет отчетов</h5>
+  {% endif %}
+
+<br>
+{%load crispy_forms_tags %}
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button type="submit" class="btn btn-primary" >Add file for quality check</button>
+</form>
+
+{% endblock %}

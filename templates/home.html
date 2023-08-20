@@ -1,0 +1,19 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+
+{% block title %}Домашняя страница{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <div class="container text-center">
+  <div class="row align-items-start">
+    <div class="col">
+      <h3><a href="{% url 'files_front-list' %}">Ваши файлы</a></h3>
+    </div>
+    <div class="col">
+      <h3><a href="{% url 'reports_front-list' %}">Ваши отчеты</a></h3>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

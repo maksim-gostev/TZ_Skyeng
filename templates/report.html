@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Отчеты{% endblock %}
+
+{% block content %}
+<h2 align="center">Отчет для файла {{ report.file.file }}</h2>
+
+{% for error in report.result %}
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">Last check: {{ error.check_time }} | Line: {{ error.line }} | Column: {{ error.column }} | Error: {{ error.error }}</li>
+</ul>
+{% endfor %}
+
+<br>
+<h3><a href="{% url 'reports_front-list' %}">Back</a></h3>
+
+{% endblock %}
